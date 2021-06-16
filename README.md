@@ -6,7 +6,7 @@ Add to the **Cargo.toml** on dependencies
 **DiscordMessenger = "1.0.0"**
 
 ## Example
-```
+```rs
 use DiscordMessenger::{DiscordMessage, EmbedBuilder};
 
 fn main() {
