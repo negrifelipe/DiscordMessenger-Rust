@@ -1,5 +1,8 @@
+use chrono::Utc;
 use serde::Serialize;
 use std::clone::Clone;
+
+pub use chrono::DateTime;
 
 #[derive(Serialize)]
 pub struct DiscordMessage {
@@ -57,7 +60,7 @@ pub struct Embed {
     pub title: Option<String>,
     pub description: Option<String>,
     pub url: Option<String>,
-    pub timestamp: Option<String>,
+    pub timestamp: Option<DateTime<Utc>>,
     pub color: Option<i32>,
     pub footer: Option<Footer>,
     pub image: Option<Image>,
@@ -73,7 +76,7 @@ pub struct EmbedBuilder {
     pub title: Option<String>,
     pub description: Option<String>,
     pub url: Option<String>,
-    pub timestamp: Option<String>,
+    pub timestamp: Option<DateTime<Utc>>,
     pub color: Option<i32>,
     pub footer: Option<Footer>,
     pub image: Option<Image>,
@@ -117,7 +120,7 @@ impl EmbedBuilder {
         self
     }
 
-    pub fn set_timestamp(&mut self, time: String) -> &mut EmbedBuilder {
+    pub fn set_timestamp(&mut self, time: DateTime<Utc>) -> &mut EmbedBuilder {
         self.timestamp = Some(time);
         self
     }
